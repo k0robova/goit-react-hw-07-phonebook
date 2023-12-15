@@ -4,7 +4,6 @@ import { ContactList } from './ContactList/ContactList';
 import { Filter } from './Filter/Filter';
 import { useSelector } from 'react-redux';
 import { Form } from './Form/Form';
-// import { getContacts } from 'redux/contactsSlice';
 import { getContacts } from '../redux/contactsSlice';
 
 export function App() {
