@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addContact, getContacts } from '../../redux/contactsSlice';
 
 export function Form() {
+  // cpmment
   const [value, setValue] = useState({
     name: '',
     number: '',
