@@ -18,8 +18,8 @@ export const ContactList = () => {
 
   return (
     <ul>
-      {visibleFilteredContacts.map(({ id, name, number }) => (
-        <ContactElement key={id} id={id} name={name} number={number} />
+      {visibleFilteredContacts.map(({ id, name, phone }) => (
+        <ContactElement key={id} id={id} name={name} phone={phone} />
       ))}
     </ul>
   );

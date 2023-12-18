@@ -3,20 +3,21 @@ import { useState } from 'react';
 import css from './Form.module.css';
 import { nanoid } from 'nanoid';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact, getContacts } from '../../redux/contactsSlice';
+import { getContacts } from '../../redux/contactsSlice';
+import { addContactAction } from '../../redux/operations';
 
 export function Form() {
   const [value, setValue] = useState({
     name: '',
-    number: '',
+    phone: '',
   });
 
-  const dispatch = useDispatch();
   const contacts = useSelector(getContacts);
+  const dispatch = useDispatch();
 
   const handleFormSubmit = evt => {
     evt.preventDefault();
-    resetForm();
+    // resetForm();
     if (
       contacts.some(
         contact => contact.name.toLowerCase() === value.name.toLowerCase()
@@ -31,13 +32,14 @@ export function Form() {
       ...value,
     };
 
-    dispatch(addContact(newContact));
+    dispatch(addContactAction(newContact));
+    resetForm();
   };
 
   const resetForm = () => {
     setValue({
       name: '',
-      number: '',
+      phone: '',
     });
   };
 
@@ -57,12 +59,12 @@ export function Form() {
         />
       </label>
       <label>
-        Number
+        Phone
         <input
           type="tel"
-          name="number"
+          name="phone"
           required
-          value={value.number}
+          value={value.phone}
           onChange={handleChange}
         />
       </label>
